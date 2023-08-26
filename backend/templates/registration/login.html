@@ -1,0 +1,93 @@
+<html>
+
+<head>
+    {% load static %}
+    <link rel='stylesheet' href="{% static 'frontend/global.css?v=1' %}">
+    <link rel="stylesheet" href="{% static 'frontend/login.css?v=1' %}">
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="row"> 
+            <div class="card" >
+                
+                <div id="authForm">
+
+                    <form method="post" action="{% url 'login' %}">
+                        {% csrf_token %}
+                                    
+                        <div style="text-align: center;">
+                            <img src="{% static 'frontend/logo_acceso_a.png' %}" width="90%" height="auto" alt="logo">
+                        </div>
+            
+                        <input type="text" name="username" class="authInput"
+                            autofocus="" autocapitalize="none" autocomplete="username"
+                            maxlength="150" required id="id_username" placeholder="Usuario">
+                                          
+                        <input type="password" name="password" class="authInput" 
+                            autocomplete="current-password" required id="id_password" placeholder="Contraseña">
+                                                                                
+                        <button type="submit" id="loginbtn" class="authInput">  Iniciar sesión </button>
+                        <input type="hidden" name="next" value="{{ next }}">
+                        
+                              
+                    </form>
+                    <a id="o365btn" href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?response_type=id_token&scope=openid%20profile&client_id=e104f446-4949-4c2d-85e2-125126e057f5&redirect_uri=https%3A%2F%2Fwww%2Emiplana%2Emx%2Fu%2Facceso%2Fgoin&state=eyJpZCI6IjM1Y2UxMmE1LWFjZjMtNDEwNS05NzUzLTkyNjE5MzY4OWU2NyIsInRzIjoxNjU4NTIxODI5LCJtZXRob2QiOiJyZWRpcmVjdEludGVyYWN0aW9uIn0%3D&nonce=c57d78c9-3114-40aa-844f-0e06f880b8de&client_info=1&x-client-SKU=MSAL.JS&x-client-Ver=1.4.4&client-request-id=657c4278-984a-4a64-b512-c7322d5275d2&response_mode=form_post&sso_reload=true" class="authInput"> <img class="icono" src="{% static 'frontend/ms.png' %}"> Iniciar sesión con Microsoft </a>
+            
+                    {% if form.errors %}
+                    <p class="msgError">El usuario y/o la contraseña son incorrectos</p>
+                    {% endif %}
+                
+                    {% if next %}
+                    {% if user.is_authenticated %}
+                    <p class="msgError">Tú cuenta no tiene acceso para continuar.</p>
+                    {% else %}
+                    <p class="msgError" >Inicia sesión para continuar.</p>
+                    {% endif %}
+                    {% endif %}
+
+                    {# Assumes you set up the password_reset view in your URLconf #}
+                    <p><a href="{% url 'password_reset' %}">¿Olvidaste tu contraseña?</a></p> 
+                </div>
+                
+                            
+                            
+                            
+                <div id="carrousel">
+                    <div class="slideshow-container">
+                        <div class="mySlides fade imgCarrousel">
+                          <img src="{% static 'frontend/fondo1.jpg' %}" class="imgCarrousel" alt="logo">
+                        </div>
+                                               
+                        <div class="mySlides fade imgCarrousel">
+                          <img src="{% static 'frontend/fondo4.jpg' %}" class="imgCarrousel" alt="espacios">
+                        </div>
+                        
+                        <div class="mySlides fade imgCarrousel">
+                            <img src="{% static 'frontend/fondo5.jpg' %}" class="imgCarrousel" alt="instalaciones">
+                        </div>
+                    </div>
+                </div>
+                                    
+            </div>      
+
+        </div>
+
+    </div>
+
+    
+    
+    <footer>
+        <div style="float:left;">
+            <strong style="color:white;">&copy; <a href="https://merida.anahuac.mx/institucional/tc3a9rminos-y-condiciones-de-uso" style="color: #FF5900" target="_blank">Universidad del Mayab S.C.</a> 2022 Derechos Reservados</strong>
+    
+        </div>
+        <div  style="margin-right:80px; float:right;">
+            <b>Sitio Desarrollado por: <a href="http://dti.anahuacmayab.mx" style="color: #FF5900" target="_blank">DTI Anáhuac Mayab</a></b>
+        </div>
+    </footer>
+
+    <script src="{% static 'frontend/rawCarrousel.js' %}"></script>
+</body>
+
+</html>

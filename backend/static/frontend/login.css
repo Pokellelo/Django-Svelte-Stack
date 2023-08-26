@@ -1,0 +1,163 @@
+  body{
+    text-align: center;
+    background-color: #d8dbe0;
+    background-image: url("fondo.jpg");
+    background-blend-mode: color;
+    background-size: cover;
+    padding: 0px;
+  }
+
+  .wrapper {
+      display: grid;
+      align-items: center;
+      height: 100%;
+      grid-template-columns: repeat(1, 100%);
+
+  }
+  
+  .row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .card{
+    box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 20%), 0 1px 5px 0 rgb(0 0 0 / 12%);
+    border: 1px solid;
+    border-color: #d8dbe0;
+    box-sizing: border-box;
+    background-color: #fff;
+    border-radius: 5px;
+    /*width: 50%; No es necesario ?*/
+    min-width: 200px;
+    min-height: 400px;
+  }
+
+  #loginbtn{
+    background-color: #FF5900;
+    border:none;
+    color:white;
+    margin-top: 20px;
+  }
+
+  #loginbtn:hover{
+    background-color: #c54f10;
+    cursor: pointer;
+  }
+
+  #o365btn{
+    padding: 5px;
+    width: 100%;
+    display: block; 
+    background-color: #1976d2;
+    border:none;
+    color:white;
+    text-decoration: none;
+    text-align: center;
+    box-sizing: border-box;
+  }
+  
+  #o365btn:hover{
+    background-color:#0757a7;
+    cursor: pointer;
+  }
+  
+  .authInput{
+    padding: 5px;
+    width: 100%;
+    display: block;
+    margin-bottom: 5px;
+  }
+  .msgError{
+    color:white;
+    background-color: #E08E0B;
+    text-align: center;
+    padding: 5px 0px;
+    border-radius: 5px;
+    box-sizing: border-box;
+    
+  }
+
+  #authForm{
+    padding: 60px;
+    padding-top: 30px;
+    padding-bottom: 0px;
+    float: left;
+    width: 50%;
+    text-align: left;
+    box-sizing: border-box; 
+  }
+  
+  #carrousel{
+    text-align: right;
+    float: right;
+    padding: 0px;  
+    width: 50%;
+    margin:0px;
+    box-sizing: border-box; 
+  }
+
+  .icono{
+    width: 15px;
+    height: auto;
+  }
+
+  .imgCarrousel{  
+    width:100%;
+    height: auto;
+    
+  }
+
+  footer {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    background: #7f62393b;
+      padding: 10px 0;
+      color: #fff;
+      font-size: 12px;
+      font-weight: 300;
+      font-style: italic;
+      line-height: 22px;
+  }
+  
+
+  @media (max-width: 1030px) {
+    #authForm{
+      width: 100%;
+      padding: 40px;
+    }
+    
+    #carrousel{
+      display: none;
+    }
+
+    footer {
+      background: #7f62393b;
+      padding: 0px;
+      color: #fff;
+    }
+
+  }
+
+ /* Carrousel Raw de inicio*/
+.mySlides {display: none;}
+
+/* Slideshow container */
+.slideshow-container {
+  width: 100%;
+  box-sizing: border-box; 
+}
+
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1s;
+}
+
+@keyframes fade {
+  from {opacity: .7} 
+  to {opacity: 1}
+}
